@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="clockStart()">
+	<div class="clocK" >
+<div id="clock">
+	<span id="hour">hh</span>:<span id="min">mm</span>:<span id="sec">ss</span>
+	<span id="ampm">ampm</span>
+</div>
+<div id="date">
+	</div>
+</div>
+<script>
+	var timerId//current timer if started
+	function clockStart(){
+		if(timerId) return
+			timerId=setInterval(update, 1000)
+			update()//(*)
+	}
+	function update(){
+		var date=new Date()
+		var hours=date.getHours()
+		if(hours<10) hours='0'+hours
+			document.getElementById('hour').innerHTML=hours
+
+		var minutes=date.getMinutes()
+		if(minutes<10) minutes='0'+minutes
+			document.getElementById('min').innerHTML=minutes
+
+		var seconds=date.getSeconds()
+		if(seconds<10) seconds='0'+seconds
+			document.getElementById('sec').innerHTML=seconds
+
+		if (hours<=11) 
+			document.getElementById('ampm').innerHTML="AM";
+		else
+			document.getElementById('ampm').innerHTML="PM";
+	}
+		cd=new Date();
+		days=cd.getDay();
+		date=cd.getDate();
+		month=cd.getMonth();
+		year=cd.getFullYear();
+
+		if (days==0) days="Sunday";
+		else if(days==1) days="Monday";
+		else if(days==2) days="Tuesday";
+		else if(days==3) days="Wednesday";
+		else if(days==4) days="Thrusday";
+		else if(days==5) days="Friday";
+		else if(days==6) days="Saturday";
+		
+		if (month==0) month="Janaury";
+		else if(month==1) month="February";
+		else if (month==2) month="March";
+		else if (month==3) month="April";
+		else if (month==4) month="May";
+		else if (month==5) month="June";
+		else if (month==6) month="July";
+		else if (month==7) month="August";
+		else if (month==8) month="September";
+		else if (month==9) month="October";
+		else if (month==10) month="November";
+		else if (month==11) month="December";
+		document.getElementById('date').innerHTML=days+","+date+" "+month+" "+year+" ";
+</script>
+</body>
+</html>
